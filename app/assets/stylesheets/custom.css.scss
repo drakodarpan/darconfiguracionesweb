@@ -1,0 +1,15 @@
+@import "bordes";
+  
+$color_fondo: #FFFFE0;
+
+.body_color {
+  background-color: $color_fondo;
+}
+
+.align_text {
+  text-align: center;
+}
+
+.button_rounds_format {
+  @include border_rounder(180px, 10px);
+}
