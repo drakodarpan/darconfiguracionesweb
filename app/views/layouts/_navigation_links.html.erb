@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+  <li><%= link_to "User", users_path %></li>
   <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
   <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
 <% else %>

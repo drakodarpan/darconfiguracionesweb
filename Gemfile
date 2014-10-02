@@ -19,4 +19,5 @@ gem 'figaro', '~> 1.0.0'
 group :development do
   gem 'foundation-rails'
   gem 'rails_layout'
+  gem 'paperclip', '~> 4.2.0'
 end

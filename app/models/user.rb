@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
     false
   end
   
+  # Avatar
+  has_attached_file :avatar,
+  :styles => { :medium => "300x300>", :thumb => "100x100>" },
+  :default_url => 'missing.jpg'
+  
+  validates_attachment :avatar,
+  :size => { :in => 0..20.kilobytes },
+  :content_type => { :content_type => /\Aimage\/.*\Z/ }
 end

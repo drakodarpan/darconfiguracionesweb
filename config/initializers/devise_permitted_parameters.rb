@@ -11,3 +11,5 @@ module DevisePermittedParameters
     devise_parameter_sanitizer.for(:account_update) << :name << :account_number << :email
   end
 end
+      
+DeviseController.send :include, DevisePermittedParameters

@@ -1,19 +1,18 @@
-<h2>Log in</h2>
-
 <div class="authform">
+  <h2>Log in</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   
     <div class="row">
       <div class="small-12 medium-12 columns">
         <%= f.label :account_number %>
-        <%= f.text_field :account_number, autofocus: true %>
+        <%= f.text_field :account_number, autofocus: true, placeholder: :account_number.to_s.split("_").map(&:capitalize), value: "" %>
       </div>
     </div>
 
     <div class="row">
       <div class="small-12 medium-12 columns">
         <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: :password.capitalize %>
       </div>
     </div>
 
