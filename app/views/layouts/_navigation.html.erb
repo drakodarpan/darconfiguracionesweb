@@ -1,29 +1,31 @@
-<nav class="top-bar foundation-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-     <span class="has-tip">
-       <h1 class="show-for-small-only">
-         <%= link_to 'Home', root_path %>
-       </h1>
-       <h1 class="toggle-topbar menu-icon">
-         <a href="#">Menu</a>
-       </h1>
-     </span>
-     <span class="has-tip">
-       <h1 class="show-for-medium-only">
-         <%= link_to 'Home', root_path %>
-       </h1>
-     </span>
-     <span class="has-tip">
-       <h1 class="show-for-large-only">
-         <%= link_to 'Home', root_path %>
-       </h1>
-     </span>
-    </li>
-  </ul>
-  <div class="top-bar-section">
-    <ul class="right">
-      <%= render 'layouts/navigation_links' %>
-    </ul>
-  </div>
-</nav>
+<div class="sticky">
+	<nav class="top-bar" data-topbar data-no-turbolink role="navigation" data-options="is_hover: false">
+	  <ul class="title-area">
+	    <li class="name">
+	     <span class="has-tip">
+	       <h1 class="show-for-small-only">
+	         <%= link_to 'Home', root_path %>
+	       </h1>
+	       <h1 class="toggle-topbar menu-icon">
+	         <a href="#">Menu</a>
+	       </h1>
+	     </span>
+	     <span class="has-tip">
+	       <h1 class="show-for-medium-only">
+	         <%= link_to 'Home', root_path %>
+	       </h1>
+	     </span>
+	     <span class="has-tip">
+	       <h1 class="show-for-large-only">
+	         <%= link_to 'Home', root_path %>
+	       </h1>
+	     </span>
+	    </li>
+	  </ul>
+	  <div class="top-bar-section">
+	    <ul class="right">
+	      <%= render 'layouts/navigation_links' %>
+	    </ul>
+	  </div>
+	</nav>
+</div>

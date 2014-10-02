@@ -13,3 +13,12 @@ $color_fondo: #FFFFE0;
 .button_rounds_format {
   @include border_rounder(180px, 10px);
 }
+
+.image-decoration {
+  border-radius: 50%;
+  width: 3.5em;
+  height: 2.7em;
+  border: 3px solid #C2E4F5;
+  margin: 0;
+  padding: 0;
+}
