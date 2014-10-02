@@ -3,7 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       ## User information
       t.string :name
-      t.integer :account_number
+      t.integer :account_number, default: 0
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""

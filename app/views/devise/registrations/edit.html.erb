@@ -14,7 +14,7 @@
     <div class="row">
       <div class="small-12 medium-12 columns">
         <%= f.label :account_number %>
-        <%= f.text_field :account_number %>
+        <%= f.text_field :account_number, placeholder: :account_number.to_s.split('_').map(&:capitalize) %>
       </div>
     </div>
   
