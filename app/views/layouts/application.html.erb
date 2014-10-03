@@ -14,9 +14,20 @@
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <main role="main">
+    <% if user_signed_in? %>
+      <div id="column-menu">
+        <div id="side">
+          <ul>
+            <li><%= link_to "Users", users_path %></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    <!-- main role="main" class="main-position" -->
+    <div id="main-position">
        <%= render 'layouts/messages' %>
        <%= yield %>
-    </main>
+    <!-- /main -->
+    </div>
   </body>
 </html>
