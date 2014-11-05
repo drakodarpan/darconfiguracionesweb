@@ -11,11 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002180326) do
+ActiveRecord::Schema.define(version: 20140912170724) do
+
+  create_table "ctl_cencontrolconfiguracions", force: true do |t|
+    t.integer  "num_valor1",        default: 0
+    t.string   "nom_valor2",        default: ""
+    t.text     "des_descripcion",   default: ""
+    t.integer  "account_number_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ctl_cencontrolconfiguracions", ["account_number_id"], name: "index_ctl_cencontrolconfiguracions_on_account_number_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.integer  "account_number",         default: 0
+    t.integer  "account_number",         default: 0,  null: false
+    t.integer  "role",                   default: 0
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -34,7 +46,7 @@ ActiveRecord::Schema.define(version: 20141002180326) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "users", ["account_number"], name: "index_users_on_account_number", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

@@ -1,31 +1,17 @@
 <div class="sticky">
-	<nav class="top-bar" data-topbar data-no-turbolink role="navigation" data-options="is_hover: false">
-	  <ul class="title-area">
-	    <li class="name">
-	     <span class="has-tip">
-	       <h1 class="show-for-small-only">
-	         <%= link_to 'Home', root_path %>
-	       </h1>
-	       <h1 class="toggle-topbar menu-icon">
-	         <a href="#">Menu</a>
-	       </h1>
-	     </span>
-	     <span class="has-tip">
-	       <h1 class="show-for-medium-only">
-	         <%= link_to 'Home', root_path %>
-	       </h1>
-	     </span>
-	     <span class="has-tip">
-	       <h1 class="show-for-large-only">
-	         <%= link_to 'Home', root_path %>
-	       </h1>
-	     </span>
-	    </li>
-	  </ul>
-	  <div class="top-bar-section">
-	    <ul class="right">
-	      <%= render 'layouts/navigation_links' %>
-	    </ul>
-	  </div>
-	</nav>
+  <nav class="top-bar title-height" data-topbar data-no-turbolink role="navigation" aria-hidden="true" data-options="sticky_on: large">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to t('label-navegacion.home'), root_path %></h1>
+      </li>
+      <li class="toggle-topbar menu-icon">
+    	  <a href="#">Menu</a>
+      </li>
+    </ul>
+    <div class="top-bar-section">
+      <ul class="right">
+        <%= render 'layouts/navigation_links' %>
+      </ul>
+    </div>
+  </nav>
 </div>

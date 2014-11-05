@@ -2,32 +2,21 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Configuraciones Web" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Configuraciones Web" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Utilerias Compras Muebles" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Utilerias Compras Muebles" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%# Modernizr is required for Zurb Foundation %>
     <%= javascript_include_tag 'vendor/modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body class="body_color">
+  <body class="fondo">
     <header>
       <%= render 'layouts/navigation' %>
     </header>
-    <% if user_signed_in? %>
-      <div id="column-menu">
-        <div id="side">
-          <ul>
-            <li><%= link_to "Users", users_path %></li>
-          </ul>
-        </div>
-      </div>
-    <% end %>
-    <!-- main role="main" class="main-position" -->
-    <div id="main-position">
+    <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
-    <!-- /main -->
-    </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,34 @@
+<h3>Listado de las configuraciones dadas de alta</h3>
+
+<div class="authform">
+  <div class="form-group">
+    <fieldset>
+      <div class="row">
+	    <table>
+	      <thead>
+	        <tr>
+	          <th width="100" class="table-header-format">Valor 1</th>
+	          <th width="100" class="table-header-format">Valor 2</th>
+	          <th width="250" class="table-header-format">Descripcion</th>
+	          <th width="250" class="table-header-format">Nombre usuario alta</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	  	    <% @idconfiguraciones.each do |ctlconfiguraciones| %>
+	  	      <tr>
+	  	        <td><%= link_to ctlconfiguraciones.num_valor1, :controller => :ctlcenconfiguraciones, :action => 'show', id: ctlconfiguraciones.id %></td>
+                <td><%= ctlconfiguraciones.nom_valor2 %></td>
+                <td><%= ctlconfiguraciones.des_descripcion %></td>
+                <td><%= @user.name %></td>
+	  	      </tr>
+	  	    <% end %>
+	      </tbody>
+	    </table>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <%= link_to 'Nuevo', new_ctlcenconfiguracione_path, class: "button small right boton-radius-personalizado" %>
+      <%= link_to 'Back', :back, class: "button small right boton-radius-personalizado" %>
+    </div>
+  </div>
+</div>

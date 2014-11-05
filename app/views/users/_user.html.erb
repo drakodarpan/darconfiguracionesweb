@@ -1,4 +1,21 @@
-<td class="title-center-table">
+<td class="title-center">
   <%= link_to user.account_number, user %>
 </td>
-<td><%= user.name.titleize %></td>
+<td><%= user.name %></td>
+
+<%= form_for(user) do |f| %>
+  <td>
+    <%= f.select(:role, User.roles.keys.map { |role| [role.titleize, role] } ) %>
+  </td>
+  <td>
+    <%= f.submit 'Change role', :class => 'button tiny small radius' %>
+  </td>
+<% end %>
+
+<td>
+<%= link_to('Delete user', 
+            user_path(user), 
+            :data => { :confirm => 'Are you sure?' }, 
+            :method => :delete, 
+            :class => 'button tiny small large radius' ) unless user == current_user %>
+</td>

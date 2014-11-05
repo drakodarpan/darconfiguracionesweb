@@ -1,70 +1,96 @@
 <div class="authform">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <h3><%= t('title-forms.edit') %> <%= current_user.name %></h3>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
     <%= devise_error_messages! %>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :avatar %>
-        <%= f.file_field :avatar, autofocus: true %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-4 columns">
+          <%= f.label :avatar %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.file_field :avatar, :autofocus => true, class: 'form-control' %>
+        </div>
       </div>
     </div>
-  
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :name %>
-        <% s = :name %>
-        <%= f.text_field :name, placeholder: :name.capitalize %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-5 columns">
+      	  <%= f.label t('label-forms.name') %>
+      	</div>
+      	<div class="small-7 columns">
+      	  <%= f.text_field :name, class: "form-control" %>
+      	</div>
       </div>
     </div>
-  
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :account_number %>
-        <%= f.text_field :account_number, placeholder: :account_number.to_s.split('_').map(&:capitalize) %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-5 columns">
+      	  <%= f.label t('label-forms.account_number') %>
+      	</div>
+      	<div class="small-7 columns">
+      	  <%= f.text_field :account_number, class: 'form-control' %>
+      	</div>
       </div>
     </div>
-  
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :email %>
-        <%= f.email_field :email, placeholder: :email.capitalize %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-5 columns">
+          <%= f.label :email %>
+        </div>
+        <div class="small-7 columns">
+          <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div class="small-10 columns">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+        </div>
       </div>
     </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off", placeholder: :password.capitalize %>
+    <fieldset>
+      <p><%= t('pass-label.lblpasblank') %></p>
+      <div class="form-group">
+      	<div class="row">
+      	  <div class="small-5 columns">
+            <%= f.label :password %>
+          </div>
+          <div class="small-7 columns">
+            <%= f.password_field :password, :autocomplete => 'off', class: 'form-control', placeholder: :password.capitalize %>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: :password_confirmation.to_s.split("_").map(&:capitalize) %>
+      <div class="form-group">
+      	<div class="row">
+      	  <div class="small-5 columns">
+            <%= f.label t('label-forms.password_confirmation') %>
+          </div>
+          <div class="small-7 columns">
+            <%= f.password_field :password_confirmation, class: 'form-control', placeholder: t('label-forms.password_confirmation').to_s.split('_').map(&:titleize) %>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off", placeholder: :current_password.to_s.split("_").map(&:capitalize) %>
+    </fieldset>
+    <fieldset>
+      <p><%= t('pass-label.lblpasnow') %></p>
+      <div class="form-group">
+      	<div class="row">
+      	  <div class="small-5 columns">
+            <%= f.label t('label-forms.current_password') %>
+          </div>
+          <div class="small-7 columns">
+            <%= f.password_field :current_password, class: 'form-control', placeholder: t('label-forms.current_password').to_s.split('_').map(&:titleize) %>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div>
-      <%= f.submit "Update", class: "small button radius" %>
-    </div>
+    </fieldset>
+      <%= f.submit t('lbl-boton.update'), :class => 'button small right boton-radius-personalizado' %>
+      <%= link_to t('lbl-boton.back'), :back %>
   <% end %>
-
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "small button radius" %></p>
-
-  <%= link_to "Back", :back %>
+</div>
+<div class="authform">
+  <h3><%= t('label-forms.delete_account') %></h3>
+  <p><%= t('label-forms.sad_message')%></p>
+  <%= button_to ( t('lbl-boton.cancel') +" "+ t('label-forms.my_account') ), 
+      registration_path(resource_name), 
+      :data => { :confirm => "Are you sure?" }, 
+      :method => :delete, 
+      :class => 'button small right boton-radius-personalizado' %>
 </div>

@@ -1,16 +1,23 @@
+<%# add navigation links to this file %>
 <% if user_signed_in? %>
+  <li class="divider"></li>
+  <li><%= link_to 'Configuraciones', ctlcenconfiguraciones_path %></li>
+  <% if current_user.admin? %>
+    <li class="divider"></li>
+    <li><%= link_to 'Users', users_path %></li>
+  <% end %>
   <li class="divider"></li>
   <li class="has-dropdown">
   	<a href="#"><%= image_tag current_user.avatar, class: "image-decoration" %></a>
   	<ul class="dropdown">
-      <li><%= link_to "Edit account", edit_user_registration_path %></li>
+      <li><%= link_to t('label-navegacion.edit_account'), edit_user_registration_path %></li>
       <li class="divider"></li>
-  	  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+  	  <li><%= link_to t('label-navegacion.sign_out'), destroy_user_session_path, method: :delete %></li>
   	</ul>
   </li>
 <% else %>
   <li class="divider"></li>
-  <li><%= link_to "Sign in", new_user_session_path %></li>
+  <li><%= link_to t('label-navegacion.sign_in'), new_user_session_path %></li>
   <li class="divider"></li>
-<li><%= link_to "Register", new_user_registration_path %></li>
+  <li><%= link_to  t('label-navegacion.register'), new_user_registration_path %></li>
 <% end %>

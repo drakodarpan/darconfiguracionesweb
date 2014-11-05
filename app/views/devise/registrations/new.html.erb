@@ -1,59 +1,68 @@
 <div class="authform">
-  <h2>Sign up</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+    <h3>Sign up</h3>
     <%= devise_error_messages! %>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-      	<%= f.label :avatar %>
-      	<%= f.file_field :avatar, autofocus: true %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-4 columns">
+          <%= f.label :avatar %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.file_field :avatar, :autofocus => true, class: 'form-control' %>
+        </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control", placeholder: :name.capitalize %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-5 columns">
+      	  <%= f.label t('label-forms.name') %>
+      	</div>
+      	<div class="small-7 columns">
+      	  <%= f.text_field :name, class: "form-control", placeholder: t('label-forms.name').capitalize %>
+      	</div>
       </div>
     </div>
-  
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :account_number %>
-        <%= f.text_field :account_number, class: "form-control", placeholder: :account_number.to_s.split("_").map(&:capitalize), value: "" %>
+    <div class="form-group">
+      <div class="row">
+        <div class="small-5 columns">
+          <%= f.label :email %>
+        </div>
+        <div class="small-7 columns">
+          <%= f.email_field :email, class: 'form-control', placeholder: :email.capitalize %>
+        </div>
       </div>
     </div>
-  
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control", placeholder: :email.capitalize %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-5 columns">
+      	  <%= f.label t('label-forms.account_number') %>
+      	</div>
+      	<div class="small-7 columns">
+      	  <%= f.text_field :account_number, class: "form-control", value: "", placeholder: t('label-forms.account_number').to_s.split('_').map(&:titleize) %>
+      	</div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :password %> 
-        <% if @validatable %>
-          <i>(<%= @minimum_password_length %> characters minimum)</i>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "off", placeholder: :password.capitalize %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-5 columns">
+          <%= f.label :password %>
+        </div>
+        <div class="small-7 columns">
+          <%= f.password_field :password, class: 'form-control', placeholder: :password.capitalize %>
+        </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: :password_confirmation.to_s.split("_").map(&:capitalize) %>
+    <div class="form-group">
+      <div class="row">
+      	<div class="small-5 columns">
+          <%= f.label t('label-forms.password_confirmation') %>
+        </div>
+        <div class="small-7 columns">
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: t('label-forms.password_confirmation').to_s.split('_').map(&:titleize) %>
+        </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="small-12 medium-12 columns">
-        <%= f.submit "Sign up", class: "small button radius" %>
-      </div>
-    </div>
+     <%= f.submit t('lbl-boton.sign_in'), :class => 'button small right boton-radius-personalizado' %>
+     <%= link_to t('lbl-boton.cancel'), :back, :class => 'button small right boton-radius-personalizado' %>
   <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>

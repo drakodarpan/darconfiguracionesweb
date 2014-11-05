@@ -1,0 +1,67 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+es:
+  hello: "Hola mundo"
+  welcome: "Bienvenido"
+  label-navegacion:
+    home: 'Inicio'
+    edit_account: 'Editar cuenta'
+    sign_out: 'Salir'
+    sign_in: 'Ingresar'
+    register: 'Registrarse'
+  title-forms:
+    create: "Crear"
+    edit: "Editar"
+    sign_up: 'Datos del usuario...'
+  label-forms:
+    name: "Nombre"
+    account_number: "Número de empleado"
+    password_confirmation: "Confirmar password"
+    current_password: "Password actual"
+    my_account: "mi cuenta"
+    sad_message: "Al cancelar esta cuenta, ya no se podra ingresar al sistema."
+    delete_account: "Eliminar cuenta."
+  pass-label:
+    lblminchar: "caracteres minimo"
+    lblpasblank: "Dejar en blanco, sino deseas cambiarlo."
+    lblpasnow: "Es necesario tu password actual para hacer la(s) actualizacion(es)."
+  lbl-boton:
+    update: "Actualizar"
+    cancel: "Cancelar"
+    back: "Atras"
+    sign_in: 'Accesar'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'este correo ya fue registrado...Verifique!!!'
+              blank: 'no puede estar en blanco.'
+            account_number:
+              taken: 'este número de empleado ya fue capturado...Verifique!!!'
+            password:
+              blank: 'no puede estar en blanco.'
+            current_password:
+              blank: 'no puede estar en blanco.'
+  configuration:
+    create: 'Se creo correctamente...'

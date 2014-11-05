@@ -1,2 +1,38 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>Information User</h3>
+
+<table>
+  <thead>
+  	<tr>
+  	  <th width="150">Concept</th>
+  	  <th width="200">Description</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<tr>
+      <td>Employment</td>
+      <td>
+      	<%= @usersince%>
+      </td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td colspan="2">Email: <%= @user.email %></td>
+    </tr>
+    <tr>
+      <td>Create user</td>
+      <td><%= @user.created_at.strftime("%d / %B / %Y") %></td>
+    </tr>
+    <tr>
+      <td>
+      	Avatar
+      </td>
+      <td>
+        <%= image_tag @user.avatar, class: "img-show-format" %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'Back', :back %>

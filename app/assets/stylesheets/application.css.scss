@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+.fondo {
+  background-color: #eee;
+}
+
+.boton-radius-personalizado {
+  border-radius: 10px;
+}
+
+.image-decoration {
+  border-radius: 50%;
+  width: 3.5em;
+  height: 2.7em;
+  border: 3px solid #C2E4F5;
+  margin: 0;
+  padding: 0;
+}
+
